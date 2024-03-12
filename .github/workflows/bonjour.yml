@@ -16,8 +16,9 @@ jobs:
       
       - uses: actions/setup-go@v5
         with:
-          go-version-file: '../go.mod'
+          go-version-file: './go.mod'
       - run: go version
+
       - run: make dev_deb
       - run: make all
       - run: make dev 

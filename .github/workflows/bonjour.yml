@@ -1,19 +1,15 @@
-name: Vehicle Server CI
+name: Bonjour
 on:
   - push
 jobs:
-  ci:
+  dire_bonjour:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-      - name: Setup Go
+      - uses: actions/checkout@v4 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+     
       - uses: actions/setup-go@v5
         with:
           go-version-file: './go.mod'
-      - name: Check Go Version
-        run: go version
-      - name: Build application
-        run: make build
-      - name: List dist output
-        run: ls dist/
+      - run: go version
+      - run: make all
+      - run: ls ./dist

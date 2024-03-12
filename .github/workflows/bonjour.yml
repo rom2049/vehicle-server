@@ -8,8 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
   
-        id: package
+        
       - uses: juliangruber/read-file-action@v1
+        id: package
         with:
           path: ./README.md
       # - run: ls -l # Liste les fichier du répertoire courant

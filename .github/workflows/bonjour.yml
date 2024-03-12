@@ -13,3 +13,11 @@ jobs:
       - uses: Code-Hex/neo-cowsay-action@v1
         with:
           message: "${{ steps.readfile.outputs.content }}"
+      
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: '../go.mod'
+      - run: go version
+      - run: make dev_deb
+      - run: make all
+      - run: make dev 

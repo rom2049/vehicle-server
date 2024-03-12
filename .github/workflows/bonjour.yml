@@ -7,15 +7,15 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - name: Read README.md
+  
         id: package
-        uses: juliangruber/read-file-action@v1
+      - uses: juliangruber/read-file-action@v1
         with:
           path: ./README.md
       # - run: ls -l # Liste les fichier du répertoire courant
       # - run: cat README.md # Affiche le contenu du fichier `README.md` à la base du dépôt  
       # - run: cat README.md | cowsay
-      - name: cowsay on the comment
-        uses: Code-Hex/neo-cowsay-action@v1
+
+      - uses: Code-Hex/neo-cowsay-action@v1
         with:
           message: "${{ steps.package.outputs.path }}"

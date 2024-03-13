@@ -59,11 +59,9 @@ unit_test:
 integration_test:
 	go test -v -count=1 --tags=integration ./app
 
-.PHONY all
+.PHONY: all
 all: clean dist unit_test integration_test build package release
 
 .PHONY: release
 release:
-	git tag $(TAG) -m "$(TAG_MESSAGE)"
-	git push $(TAG)
 	docker push $(IMAGE):$(TAG)

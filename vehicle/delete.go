@@ -29,6 +29,6 @@ func (d *DeleteHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	if rep {
 		rw.WriteHeader(http.StatusNoContent)
 	} else {
-		http.Error(rw, "404", http.StatusInternalServerError)
+		http.Error(rw, "404", http.StatusNotFound)
 	}
 }

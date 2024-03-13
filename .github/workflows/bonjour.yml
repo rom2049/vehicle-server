@@ -15,6 +15,5 @@ jobs:
       - run: make unit_test
       - run: make integration_test
       - run: make all
-      - run: make package
       - run: ls ./dist
       

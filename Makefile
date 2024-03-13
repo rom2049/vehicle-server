@@ -1,5 +1,5 @@
 .PHONY: all
-all: clean dist build
+all: clean dist build package
 	
 
 .PHONY: clean
@@ -37,6 +37,15 @@ dev_db:
 		--publish 5432:5432 \
 		postgis/postgis:16-3.4-alpine
 
+
+
 .PHONY: stop_dev_db
 stop_dev_db:
 	docker container stop $(DB_CONTAINER_NAME)
+
+IMAGE?=rom2049/vehicle-server
+TAG?=dev
+
+.PHONY: package
+package:
+  docker build -t $(IMAGE):$(TAG) .

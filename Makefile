@@ -43,9 +43,18 @@ dev_db:
 stop_dev_db:
 	docker container stop $(DB_CONTAINER_NAME)
 
+
 IMAGE?=rom2049/vehicle-server
 TAG?=dev
 
 .PHONY: package
 package:
   docker build -t $(IMAGE):$(TAG) .
+
+.PHONY: unit_test
+unit_test:
+	go test -v -cover ./...
+
+.PHONY: integration_test
+integration_test:
+	go test -v -count=1 --tags=integration ./app

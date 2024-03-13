@@ -49,7 +49,7 @@ TAG?=dev
 
 .PHONY: package
 package:
-  docker build -t $(IMAGE):$(TAG) .
+	docker build -t $(IMAGE):$(TAG) .
 
 .PHONY: unit_test
 unit_test:
